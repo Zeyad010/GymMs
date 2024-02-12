@@ -52,7 +52,13 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Data table</h4>
+                    <h4 class="card-title">Admin Panle</h4>
+                    <div class="row">
+                        <div class="col-12 ">
+                            <button type="button" class="btn btn-gradient-primary btn-fw">Create</button>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-12">
                             <table id="order-listing" class="table">
@@ -77,7 +83,31 @@
                                             <td>@obj.Gander</td>
 
                                             <td>
-                                                <label class="badge badge-info">@obj.SubscriptionPlan</label>
+                                                @if (obj.SubscriptionPlan == "Gold")
+                                                {
+                                                    <label class="badge badge-gradient-warning">@obj.SubscriptionPlan</label>
+
+                                                }
+                                                @if (obj.SubscriptionPlan == "VIP")
+
+                                                {
+                                                    <label class="badge badge-gradient-success">@obj.SubscriptionPlan</label>
+
+                                                }
+
+                                                @if (obj.SubscriptionPlan == "Platinum")
+                                                {
+                                                    <label class="badge badge-gradient-secondary">@obj.SubscriptionPlan</label>
+
+                                                }
+
+                                                
+
+                                                  
+                                              
+                                                
+                                                
+                                                
                                             </td>
                                             <td>
                                                 <button class="btn btn-outline-primary">View</button>
