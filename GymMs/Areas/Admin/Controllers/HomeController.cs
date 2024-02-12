@@ -18,5 +18,24 @@ namespace GymMs.Areas.Admin.Controllers
 
             return View(objUsersList);
         }
-    }
+
+
+		public IActionResult Create() {
+        
+        
+         return View();
+        }
+
+        [HttpPost]
+		public IActionResult Create(UserM obj)
+		{
+            _db.TbUsers.Add(obj);
+            _db.SaveChanges();
+
+			return RedirectToAction("List");
+		}
+
+
+
+	}
 }
