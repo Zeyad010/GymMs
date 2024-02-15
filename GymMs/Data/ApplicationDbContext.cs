@@ -25,10 +25,10 @@ namespace GymMs.Data
 
             modelBuilder.Entity<UserM>().HasData(
                 
-                new UserM { ID=0124 ,Name="Yousef Mohamed",Gander="Male",Age=22,Email="yousefmo@gmail.com",Password="Yo1234",Phone="0100123456" ,SubscriptionPlan= "Platinum" },
-                new UserM { ID = 0224, Name = "Ali Mohamed", Gander = "Male", Age = 27, Email = "alimomo@gmail.com", Password = "ali1234", Phone = "0100169456", SubscriptionPlan = "Platinum" },
-                new UserM { ID = 0324, Name = "Layla Ahmed", Gander = "Female", Age = 23, Email = "laylaqn@gmail.com", Password = "lili1234", Phone = "0100128756", SubscriptionPlan = "Gold" },
-                new UserM { ID = 0424, Name = "Nada Zein  ", Gander = "Female", Age = 25, Email = "nadaazein@gmail.com", Password = "Na1234", Phone = "0100119456", SubscriptionPlan = "VIP" }
+                new UserM { ID=0124 ,Name="Yousef Mohamed",Gander="Male",Age=22,Email="yousefmo@gmail.com",Password="Yo1234",Phone="0100123456" ,SubscriptionPlan= "Platinum" , SubscriptionStatus="Active" },
+                new UserM { ID = 0224, Name = "Ali Mohamed", Gander = "Male", Age = 27, Email = "alimomo@gmail.com", Password = "ali1234", Phone = "0100169456", SubscriptionPlan = "Platinum", SubscriptionStatus = "Active" },
+                new UserM { ID = 0324, Name = "Layla Ahmed", Gander = "Female", Age = 23, Email = "laylaqn@gmail.com", Password = "lili1234", Phone = "0100128756", SubscriptionPlan = "Gold", SubscriptionStatus = "Active" },
+                new UserM { ID = 0424, Name = "Nada Zein  ", Gander = "Female", Age = 25, Email = "nadaazein@gmail.com", Password = "Na1234", Phone = "0100119456", SubscriptionPlan = "VIP", SubscriptionStatus = "Active" }
 
 
 

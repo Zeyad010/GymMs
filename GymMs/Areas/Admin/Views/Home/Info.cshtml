@@ -1,0 +1,97 @@
+﻿@model UserM
+
+<div class="content-wrapper">
+	<div class="page-header">
+		<h3 class="page-title"> Client Information </h3>
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="#">Info Page</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Profile</li>
+			</ol>
+		</nav>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="d-flex align-items-center justify-content-center">
+						<div class="col-lg-4">
+							<div class="border-bottom text-center pb-4">
+								<img src="~/admin/assets/images/faces/face12.jpg" alt="profile" class="img-lg rounded-circle mb-3">
+								<p>@Model.Name </p>
+								<div class="d-flex justify-content-between">
+									<a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-gradient-info"><i class="fa fa-pencil-square"></i>  Edit</a>
+									<a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-gradient-danger">
+										<i class="fa fa-trash-o"></i>   Delete
+									</a>
+								</div>
+							</div>
+							@*  <div class="border-bottom py-4">
+							<p>Skills</p>
+							<div>
+							<label class="badge badge-outline-dark">Chalk</label>
+							<label class="badge badge-outline-dark">Hand lettering</label>
+							<label class="badge badge-outline-dark">Information Design</label>
+							<label class="badge badge-outline-dark">Graphic Design</label>
+							<label class="badge badge-outline-dark">Web Design</label>
+							</div>
+							</div> *@
+							<div class="border-bottom py-4">
+								<div class="d-flex mb-3">
+									<div class="progress progress-md flex-grow">
+										<div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="55" style="width: 55%" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>
+								</div>
+
+							</div>
+							<div class="py-4">
+								<p class="clearfix">
+									<span class="float-start"> Subscription Status </span>
+									<span class="float-end text-muted"> @Model.SubscriptionStatus </span>
+								</p>
+
+								<p class="clearfix">
+									<span class="float-start"> Age </span>
+									<span class="float-end text-muted"> @Model.Age </span>
+								</p>
+								<p class="clearfix">
+									<span class="float-start"> Gander </span>
+									<span class="float-end text-muted">
+										@Model.Gander
+									</span>
+								</p>
+								<p class="clearfix">
+									<span class="float-start"> Phone </span>
+									<span class="float-end text-muted">
+										@Model.Phone
+									</span>
+								</p>
+								<p class="clearfix">
+									<span class="float-start"> Email </span>
+									<span class="float-end text-muted">
+										@Model.Email
+									</span>
+								</p>
+								<p class="clearfix">
+									<span class="float-start"> Subscription Plan </span>
+									<span class="float-end text-muted">
+										@Model.SubscriptionPlan
+									</span>
+								</p>
+								<p  class="clearfix">
+									<span class="float-start"> Password </span>
+									<span class="float-end text-muted">
+										@Model.Password
+									</span>
+								</p>
+
+							</div>
+							<a asp-action="List" class="btn btn-gradient-primary btn-block">Back to list</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

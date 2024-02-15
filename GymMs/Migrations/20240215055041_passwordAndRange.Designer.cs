@@ -3,6 +3,7 @@ using GymMs.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GymMs.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240215055041_passwordAndRange")]
+    partial class passwordAndRange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,7 +64,7 @@ namespace GymMs.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("TbEmployees", (string)null);
+                    b.ToTable("TbEmployees");
 
                     b.HasData(
                         new
@@ -137,14 +140,9 @@ namespace GymMs.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("SubscriptionStatus")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.HasKey("ID");
 
-                    b.ToTable("TbUsers", (string)null);
+                    b.ToTable("TbUsers");
 
                     b.HasData(
                         new
@@ -156,8 +154,7 @@ namespace GymMs.Migrations
                             Name = "Yousef Mohamed",
                             Password = "Yo1234",
                             Phone = "0100123456",
-                            SubscriptionPlan = "Platinum",
-                            SubscriptionStatus = "Active"
+                            SubscriptionPlan = "Platinum"
                         },
                         new
                         {
@@ -168,8 +165,7 @@ namespace GymMs.Migrations
                             Name = "Ali Mohamed",
                             Password = "ali1234",
                             Phone = "0100169456",
-                            SubscriptionPlan = "Platinum",
-                            SubscriptionStatus = "Active"
+                            SubscriptionPlan = "Platinum"
                         },
                         new
                         {
@@ -180,8 +176,7 @@ namespace GymMs.Migrations
                             Name = "Layla Ahmed",
                             Password = "lili1234",
                             Phone = "0100128756",
-                            SubscriptionPlan = "Gold",
-                            SubscriptionStatus = "Active"
+                            SubscriptionPlan = "Gold"
                         },
                         new
                         {
@@ -192,8 +187,7 @@ namespace GymMs.Migrations
                             Name = "Nada Zein  ",
                             Password = "Na1234",
                             Phone = "0100119456",
-                            SubscriptionPlan = "VIP",
-                            SubscriptionStatus = "Active"
+                            SubscriptionPlan = "VIP"
                         });
                 });
 #pragma warning restore 612, 618
