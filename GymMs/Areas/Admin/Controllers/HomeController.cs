@@ -154,7 +154,7 @@ namespace GymMs.Areas.Admin.Controllers
 			
 				return RedirectToAction("List");
 		}
-
+		// Helo
 
 
 
