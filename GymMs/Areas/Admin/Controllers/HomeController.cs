@@ -27,6 +27,7 @@ namespace GymMs.Areas.Admin.Controllers
 			return View();
 		}
 		// Test
+		//Test 2
 		public IActionResult Info(int? id)
 		{
 			if (id == null || id == 0)
