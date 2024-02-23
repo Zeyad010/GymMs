@@ -61,7 +61,8 @@ namespace GymMs.Areas.Admin.Controllers
 
 
 				_db.TbUsers.Add(obj);
-				_db.SaveChanges();
+				_db.SaveChanges(); 
+				TempData["success"] = "Created Successfully";
 				return RedirectToAction("List");
 
 
@@ -137,7 +138,6 @@ namespace GymMs.Areas.Admin.Controllers
 			}
 
 
-
 			return View(UserFromDb);
 		}
 
@@ -153,6 +153,7 @@ namespace GymMs.Areas.Admin.Controllers
 			_db.TbUsers.Remove(obj);
 			_db.SaveChanges();
 			
+			TempData["success"] = "Deleted Successfully";
 				return RedirectToAction("List");
 		}
 		// Helo
