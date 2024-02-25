@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace GymMs.Migrations
+namespace GymMs.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class passwordAndRange : Migration

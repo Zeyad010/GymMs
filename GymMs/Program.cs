@@ -1,4 +1,4 @@
-using GymMs.Data;
+using GymMs.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 

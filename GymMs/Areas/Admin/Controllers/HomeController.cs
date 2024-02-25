@@ -1,4 +1,4 @@
-﻿using GymMs.Data;
+﻿using GymMs.DataAccess.Data;
 using GymMs.Models;
 using Microsoft.AspNetCore.Mvc;
 

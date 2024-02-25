@@ -1,7 +1,8 @@
-﻿using GymMs.Models;
+﻿using GymMs.DataAccess.Data;
+using GymMs.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GymMs.Data
+namespace GymMs.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {
