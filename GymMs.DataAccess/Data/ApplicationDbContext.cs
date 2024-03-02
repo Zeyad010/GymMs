@@ -19,6 +19,7 @@ namespace GymMs.DataAccess.Data
 
         public DbSet<UserM> TbUsers { get; set; }
         public DbSet<EmployeesM> TbEmployees { get; set; }
+        public DbSet<ApplicationUserM> TbApplicationUser { get; set; } 
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
