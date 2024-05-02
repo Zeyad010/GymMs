@@ -1,10 +1,13 @@
 ﻿using GymMs.DataAccess.Data;
 using GymMs.Models;
+using GymMs.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymMs.Areas.Admin.Controllers
 {
 	[Area("Admin")]
+	[Authorize(Roles =SD.Role_Admin)]
 	public class HomeController : Controller
 	{
 		private readonly ApplicationDbContext _db;
