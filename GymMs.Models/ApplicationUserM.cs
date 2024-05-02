@@ -25,6 +25,10 @@ namespace GymMs.Models
         
         public string? SubscriptionStatus { get; set; }
 
+        public int? SubscriptionDuration { get; set; }
+
+        public DateOnly? SubscriptionDate { get; set; }
+
 
     }
 }

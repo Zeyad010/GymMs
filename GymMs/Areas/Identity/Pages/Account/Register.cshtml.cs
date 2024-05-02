@@ -108,7 +108,26 @@ namespace GymMs.Areas.Identity.Pages.Account
 
             public string? Role { get; set; }
             [ValidateNever]
-            public IEnumerable<SelectListItem> RoleList { get; set; }  
+            public IEnumerable<SelectListItem> RoleList { get; set; }
+
+            [Required]
+            public string Name { get; set; }
+
+            public int? Age { get; set; }
+
+
+            public string? Gander { get; set; }
+            
+            public string? Phone { get; set; }
+            [Required]
+            public string? SubscriptionPlan { get; set; }
+
+            public string? SubscriptionStatus { get; set; }
+
+            public int? SubscriptionDuration { get; set; }
+
+            public DateOnly? SubscriptionDate { get; set; }
+
 
 
 
@@ -153,6 +172,14 @@ namespace GymMs.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                user.Name= Input.Name;
+                user.Phone = Input.Phone;
+                user.Age= Input.Age;
+                user.Gander= Input.Gander;
+                user.SubscriptionPlan= Input.SubscriptionPlan;
+                user.SubscriptionStatus= Input.SubscriptionStatus;
+                user.SubscriptionDuration= Input.SubscriptionDuration;
+                user.SubscriptionDate= Input.SubscriptionDate;
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)

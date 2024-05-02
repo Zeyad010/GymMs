@@ -26,11 +26,92 @@
             <h2 >Create a new account.</h2>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Name" class="form-control" aria-required="true" placeholder="Full Name" />
+                        <label asp-for="Input.Name">Name</label>
+                        <span asp-validation-for="Input.Name" class="text-danger"></span>
+                    </div>
             <div class="form-floating mb-3">
                 <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
                 <label asp-for="Input.Email">Email</label>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Phone" class="form-control" aria-required="true" placeholder="Phone" />
+                        <label asp-for="Input.Phone">Phone</label>
+                        <span asp-validation-for="Input.Phone" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Age" class="form-control" aria-required="true" placeholder="Age" />
+                        <label asp-for="Input.Age">Age</label>
+                        <span asp-validation-for="Input.Age" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <select asp-for="Input.Gander"class="form-select">
+                            <option disabled selected>-Select Gander</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                          
+
+                        </select>
+                    </div>
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <select asp-for="Input.SubscriptionPlan"  class="form-select">
+                            <option disabled selected>-Select SubscriptionPlan</option>
+                            <option>Platinum</option>
+                            <option>Gold</option>
+                            <option>VIP</option>
+                            
+
+                        </select>
+                    </div>
+
+
+                  
+                        <div class="form-floating mb-3 col-md-6">
+                            <select asp-for="Input.SubscriptionStatus" class="form-select">
+                                <option disabled selected>-Select SubscriptionStatus</option>
+                                <option>Active</option>
+                                <option>Expired</option>
+                                <option>Pending</option>
+
+
+                            </select>
+                        </div>
+
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <select asp-for="Input.SubscriptionDuration" class="form-select">
+                            <option disabled selected>-Select Subscription Duration</option>
+                            <option value=1>One Month</option>
+                            <option value=3>Three Month</option>
+                            <option value="6">Six Month</option>
+                            <option value="12">One Year</option>
+
+
+                        </select>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input hidden value="@DateOnly.FromDateTime(DateTime.Now)" asp-for="Input.SubscriptionDate" class="form-control"  />
+                        <label hidden asp-for="Input.SubscriptionDate"></label>
+                        <span hidden asp-validation-for="Input.SubscriptionDate" class="text-danger"></span>
+                    </div>
+                    
+                    
+
+
+
+
+                  
+
+
+                    
+
+
             <div class="form-floating mb-3">
                 <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
                 <label asp-for="Input.Password">Password</label>
