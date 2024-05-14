@@ -4,6 +4,7 @@ using GymMs.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GymMs.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240504125034_add_CustomerNumber")]
+    partial class add_CustomerNumber
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,7 +65,7 @@ namespace GymMs.DataAccess.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("TbEmployees", (string)null);
+                    b.ToTable("TbEmployees");
 
                     b.HasData(
                         new
@@ -145,7 +148,7 @@ namespace GymMs.DataAccess.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("TbUsers", (string)null);
+                    b.ToTable("TbUsers");
 
                     b.HasData(
                         new

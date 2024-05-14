@@ -1,4 +1,4 @@
-﻿@model UserM
+﻿@model ApplicationUserM
 
 <div class="content-wrapper">
 	<div class="page-header">
@@ -20,8 +20,8 @@
 								<img src="~/admin/assets/images/faces/face12.jpg" alt="profile" class="img-lg rounded-circle mb-3">
 								<p>@Model.Name </p>
 								<div class="d-flex justify-content-between">
-									<a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-gradient-info"><i class="fa fa-pencil-square"></i>  Edit</a>
-									<a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-gradient-danger">
+									<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-gradient-info"><i class="fa fa-pencil-square"></i>  Edit</a>
+									<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-gradient-danger">
 										<i class="fa fa-trash-o"></i>   Delete
 									</a>
 								</div>
@@ -78,13 +78,8 @@
 										@Model.SubscriptionPlan
 									</span>
 								</p>
-								<p  class="clearfix">
-									<span class="float-start"> Password </span>
-									<span class="float-end text-muted">
-										@Model.Password
-									</span>
-								</p>
-
+								
+								 
 							</div>
 							<a asp-action="List" class="btn btn-gradient-primary btn-block">Back to list</a>
 						</div>

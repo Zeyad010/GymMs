@@ -38,8 +38,11 @@ namespace GymMs.DataAccess.Data
 
                 );
 
+		
 
-            modelBuilder.Entity<EmployeesM>().HasData(
+
+
+			modelBuilder.Entity<EmployeesM>().HasData(
 
 
                 new EmployeesM

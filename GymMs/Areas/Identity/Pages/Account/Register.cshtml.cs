@@ -5,11 +5,13 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
+using GymMs.DataAccess.Data;
 using GymMs.Models;
 using GymMs.Utility;
 using Microsoft.AspNetCore.Authentication;
@@ -34,6 +36,13 @@ namespace GymMs.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<IdentityUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly ApplicationDbContext _db;
+
+
+
+
+
+
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
@@ -41,7 +50,8 @@ namespace GymMs.Areas.Identity.Pages.Account
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            ApplicationDbContext db)
         {
             _roleManager = roleManager;
             _userManager = userManager;
@@ -50,6 +60,7 @@ namespace GymMs.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _db = db;
         }
 
         /// <summary>
@@ -127,16 +138,23 @@ namespace GymMs.Areas.Identity.Pages.Account
             public int? SubscriptionDuration { get; set; }
 
             public DateOnly? SubscriptionDate { get; set; }
+			public int? CustomerNumber { get; set; }
 
 
 
 
 
 
-        }
 
 
-        public async Task OnGetAsync(string returnUrl = null)
+
+
+
+
+		}
+
+
+		public async Task OnGetAsync(string returnUrl = null)
         {
 
             if (!_roleManager.RoleExistsAsync(SD.Role_Customer).GetAwaiter().GetResult())
@@ -159,9 +177,13 @@ namespace GymMs.Areas.Identity.Pages.Account
 
                 ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-        }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+
+
+
+		}
+
+		public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
@@ -180,6 +202,15 @@ namespace GymMs.Areas.Identity.Pages.Account
                 user.SubscriptionStatus= Input.SubscriptionStatus;
                 user.SubscriptionDuration= Input.SubscriptionDuration;
                 user.SubscriptionDate= Input.SubscriptionDate;
+                List<ApplicationUserM> objUsersList = _db.TbApplicationUser.ToList();
+                user.CustomerNumber = objUsersList.Count()+1;
+
+
+
+
+
+
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
@@ -194,8 +225,9 @@ namespace GymMs.Areas.Identity.Pages.Account
                     else
                     {
                         await _userManager.AddToRoleAsync(user, SD.Role_Customer);
+					
 
-                    }
+					}
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

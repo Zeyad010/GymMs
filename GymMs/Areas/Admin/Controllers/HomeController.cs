@@ -17,7 +17,8 @@ namespace GymMs.Areas.Admin.Controllers
 		}
 		public IActionResult List()
 		{
-			List<UserM> objUsersList = _db.TbUsers.ToList();
+			List<ApplicationUserM> objUsersList = _db.TbApplicationUser.ToList();
+			
 
 			return View(objUsersList);
 		}
@@ -42,7 +43,7 @@ namespace GymMs.Areas.Admin.Controllers
 
 			}
 
-			UserM? UserFromDb = _db.TbUsers.Find(id);
+            ApplicationUserM? UserFromDb = _db.TbApplicationUser.Find(id);
 
 			if (UserFromDb == null)
 			{
