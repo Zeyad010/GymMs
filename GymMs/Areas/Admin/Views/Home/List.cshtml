@@ -1,143 +1,36 @@
-﻿@model List<ApplicationUserM>
-
-<div class="container-fluid page-body-wrapper">
-	<div class="main-panel">
-		<div class="content-wrapper">
-			<div class="page-header">
-				<h3 class="page-title"> Data table </h3>
-				<nav aria-label="breadcrumb">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="#">Tables</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Data table</li>
-					</ol>
-				</nav>
-			</div>
-			<div class="row">
-				<div class="col-md-4 stretch-card grid-margin">
-					<div class="card bg-gradient-danger card-img-holder text-white">
-						<div class="card-body">
-							<img src="../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image">
-							<h4 class="font-weight-normal mb-3">
-							 Clients  <i class="mdi mdi-chart-line mdi-24px float-end"></i>
-							</h4>
-							<h2 class="mb-5">@Model.Count()</h2>
-							<h6 class="card-text">Increased by 60%</h6>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 stretch-card grid-margin">
-					<div class="card bg-gradient-info card-img-holder text-white">
-						<div class="card-body">
-							<img src="../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image">
-							<h4 class="font-weight-normal mb-3">
-								Weekly Orders <i class="mdi mdi-bookmark-outline mdi-24px float-end"></i>
-							</h4>
-							<h2 class="mb-5">45,6334</h2>
-							<h6 class="card-text">Decreased by 10%</h6>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 stretch-card grid-margin">
-					<div class="card bg-gradient-success card-img-holder text-white">
-						<div class="card-body">
-							<img src="../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image">
-							<h4 class="font-weight-normal mb-3">
-								Visitors Online <i class="mdi mdi-diamond mdi-24px float-end"></i>
-							</h4>
-							<h2 class="mb-5">95,5741</h2>
-							<h6 class="card-text">Increased by 5%</h6>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-body">
-					<h4 class="card-title">Admin Panle</h4>
-
-					<a class="btn btn-gradient-primary btn-icon-text" asp-action="Create">
-						<i class="fa fa-plus-square"></i>
-						Create
-					</a>
-
-					<div class="row">
-						<div class="col-12">
-							<table id="order-listing" class="table">
-								<thead>
-									<tr>
-										
-										<th>Name</th>
-										<th>Age</th>
-										<th>Gander</th>
-										<th>SubscriptionPlan</th>
-										<th>Actions</th>
-									</tr>
-								</thead>
-								<tbody>
-
-									@foreach (var obj in Model)
-									{
-										<tr>
-										
-											<td>@obj.Name</td>
-											<td>@obj.Age</td>
-											<td>@obj.Gander</td>
-
-											<td>
-												@if (obj.SubscriptionPlan == "Gold")
-												{
-													<label class="badge badge-gradient-warning">@obj.SubscriptionPlan</label>
-
-												}
-												@if (obj.SubscriptionPlan == "VIP")
-
-												{
-													<label class="badge badge-gradient-success">@obj.SubscriptionPlan</label>
-
-												}
-
-												@if (obj.SubscriptionPlan == "Platinum")
-												{
-													<label class="badge badge-gradient-secondary">@obj.SubscriptionPlan</label>
-
-												}
-
-
-
-
-
-
-
-
-											</td>
-											<td>
-												<a asp-action="Info" asp-route-id="@obj.Id" class="btn btn-outline-primary">View</a>
-											</td>
-										</tr>
-
-									}
-
-
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
+﻿
+<div class="card shadow border-0 my-4">
+	<div class="card-header bg-secondary bg-gradient ml-0 py-3">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h2 class="text-white py-2">User List</h2>
 			</div>
 		</div>
 	</div>
+	<div class="card-body p-4">
+		<table id="tblData" class="table table-bordered table-striped" style="width:100%">
+			<thead>
+				<tr>
+					<th>Customer Number</th>
+					<th>Name</th>
+					<th>Role</th>
+					<th>Phone</th>
+					<th>Email</th>
+					<th>Age</th>
+					<th>Gander</th>
+					<th>SubscriptionPlan</th>
+					<th>SubscriptionStatus</th>
+					<th>SubscriptionDuration</th>
+					<th>SubscriptionDate</th>
+				</tr>
+			</thead>
+		</table>
+
+	</div>
 </div>
 
+@section Scripts {
+	<script src="~/js/user.js"></script>
+}
 
-<!-- content-wrapper ends -->
-<!-- partial:../../partials/_footer.html -->
-@section Scripts{
-
-	@{
-		<script src="~/admin/assets/vendors/datatables.net/jquery.dataTables.js"></script>
-		<script src="~/admin/assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-		<script src="~/admin/assets/js/data-table.js"></script>
-
-
-	}
-			}
 

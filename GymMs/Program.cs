@@ -4,6 +4,8 @@ using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Identity;
 using GymMs.Utility;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using GymMs.DataAccess.Repository.IRepository;
+using GymMs.DataAccess.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,8 @@ builder.Services.ConfigureApplicationCookie(options => {
 
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+
+builder.Services.AddScoped<IApplicationUserRepository,ApplicationUserRepository>();
 
 var app = builder.Build();
 

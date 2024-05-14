@@ -30,6 +30,8 @@ namespace GymMs.Models
         public int? SubscriptionDuration { get; set; }
 
         public DateOnly? SubscriptionDate { get; set; }
+        [NotMapped] // not added to DB
+        public string Role { get; set; }
 		
 
 
