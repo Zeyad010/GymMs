@@ -9,6 +9,7 @@ namespace GymMs.DataAccess.Repository.IRepository
 {
     public interface IApplicationUserRepository : IRepository<ApplicationUserM>
     {
-        public void Update(ApplicationUserM applicationUser);    
-    }
+        public void Update(ApplicationUserM applicationUser);
+		void Save();
+	}
 }

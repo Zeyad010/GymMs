@@ -22,6 +22,12 @@ namespace GymMs.DataAccess.Repository
             _db.TbApplicationUser.Update(applicationUser);
 
         }
-        
-    }
+
+
+		public void Save()
+		{
+			_db.SaveChanges();
+		}
+
+	}
 }

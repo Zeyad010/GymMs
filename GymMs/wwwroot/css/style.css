@@ -2295,6 +2295,7 @@ ol {
 	transform: translateX(-27.5px);
 }
 
+
 .blog-details-text .blog-details-quote h5 {
 	font-size: 20px;
 	color: #ffffff;
@@ -2764,6 +2765,7 @@ ol {
 		margin-right: 60px;
 	}
 }
+
 
 @media only screen and (min-width: 1200px) {
 	.container {
